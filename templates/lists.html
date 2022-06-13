@@ -6,35 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>lists</title>
     <link rel="stylesheet" href="/bootstrap.min.css" />
+    <style>
+        .table, th, td
+        {
+            font-size: 40px;
+            border: 1px solid;
+            text-align: left;
+            padding: 10px;
+            background-color: rgb(209, 235, 226);
+        }
+        .table 
+        {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-<div class="container-fluid">
-    <table class="table">
-        <thead>
-            <tr>
+    <div class="col-6 mx-auto my-5">
+    <table class="table table-hover">
+        <thead class="bg-primary text-light">
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Full Name</th>
-            </tr>
         </thead>
         <tbody>
+            {% for user in users %}
             <tr>
-                <td>Michael</td>
-                <td>Choi</td>
-                <td>Michael Choi</td>
+                <td>{{user['first_name']}}</td>
+                <td> {{user['last_name']}}</td>
+                <td> {{user['first_name']}} {{user['last_name']}}</td>
             </tr>
-            <tr>
-                <td>John</td>
-                <td>Supsupin</td>
-                <td>John Supsupin</td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
-        <!-- {% for user in users %}
-        {{user['first_name']}} - {{user['last_name']}}
-        {% endfor %} -->
-   
-</div>
+    </div>
 
     <script src="/jquery-3.6.0.slim.min.js"></script>
     <script src="/bootstrap.bundle.min.js.map"></script>
